@@ -1,14 +1,6 @@
 # GEOMECHANICS TOOLS PORTAL - TECHNICAL BLUEPRINT
 ## Complete Specification Document
 
-**Project:** Unified Geomechanics Tools Integration Portal  
-**Owner:** Prof. Sumeet Kumar Sinha, IIT Delhi (Civil Engineering)  
-**Contact:** sumeet.kumar507@gmail.com | skssinha@ucdavis.edu  
-**Version:** 1.0  
-**Date:** January 28, 2026
-
----
-
 ## TABLE OF CONTENTS
 
 1. [Project Overview](#1-project-overview)
