@@ -12,8 +12,19 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     # Allow CORS from React frontend
-    CORS(app, resources={r"/*": {"origins": ["https://geo-neon-theta.vercel.app/"]}}, supports_credentials=True)
-    db.init_app(app)    
+    CORS(
+        app,
+        resources={
+            r"/*": {
+                "origins": [
+                    "https://geo-neon-theta.vercel.app",
+                    "http://localhost:5173"
+                ]
+            }
+        },
+        supports_credentials=True
+    )
+    db.init_app(app)        
     migrate.init_app(app, db)
 
     from app.routes.user import user_bp
