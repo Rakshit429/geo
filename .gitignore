@@ -1,0 +1,19 @@
+/backend/.env
+/backend/smartgeotechnics/
+/frontend/node_modules/
+/frontend/.env.local
+/frontend/.env
+
+# Logs
+/frontend/logs
+/frontend/*.log
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+/frontend/lerna-debug.log*
+
+/frontend/dist
+/frontend/dist-ssr
+*.local
+
