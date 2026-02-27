@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// Helper function to get the current Clerk JWT token
+// Helper to get Clerk Token
 const getToken = async () => {
-    // We can inject this dynamically or rely on the Clerk context where requested
-    return window.Clerk?.session?.getToken();
+    // Cast window to any to avoid TS error
+    return (window as any).Clerk?.session?.getToken();
 };
 
 const api = axios.create({
