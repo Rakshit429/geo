@@ -11,17 +11,17 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const checkProfile = async () => {
             if (!isLoaded) return;
-            
+
             if (!user) {
                 // Not logged in, Clerk handles this usually, but safe to have
-                navigate("/"); 
+                navigate("/");
                 return;
             }
 
             try {
                 // Check our Postgres DB
                 const profile = await getProfile();
-                
+
                 // If profile exists but is missing critical fields (Profession/Org)
                 if (!profile.profession || !profile.organization) {
                     navigate("/onboarding");
@@ -29,7 +29,13 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
                 // If 404, api.ts usually throws error, caught below
             } catch (error: any) {
                 // If 404 (User doesn't exist in our DB), send to Onboarding
-                navigate("/onboarding");
+                if (error.response?.status === 404 || error.status === 404) {
+                    navigate("/onboarding");
+                } else {
+                    console.error("Profile fetch error:", error);
+                    // Don't loop infinitely on 500 errors or network failures
+                    // We'll let them through to the dashboard, or we could set an error state
+                }
             } finally {
                 setIsChecking(false);
             }

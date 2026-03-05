@@ -1,8 +1,8 @@
-"""Initial migration
+"""initial migration
 
-Revision ID: 58e49efe4822
+Revision ID: 63c7f9dbcd4b
 Revises: 
-Create Date: 2026-02-27 01:11:40.347252
+Create Date: 2026-03-05 00:09:32.435640
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '58e49efe4822'
+revision = '63c7f9dbcd4b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,11 +32,11 @@ def upgrade():
     sa.Column('id', sa.UUID(), nullable=False),
     sa.Column('auth_user_id', sa.String(length=255), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('full_name', sa.String(length=255), nullable=False),
-    sa.Column('phone', sa.String(length=30), nullable=True),
-    sa.Column('profession', sa.String(length=100), nullable=False),
+    sa.Column('full_name', sa.String(length=255), nullable=True),
+    sa.Column('phone', sa.String(length=50), nullable=True),
+    sa.Column('profession', sa.String(length=100), nullable=True),
     sa.Column('organization', sa.String(length=255), nullable=True),
-    sa.Column('country', sa.String(length=100), nullable=False),
+    sa.Column('country', sa.String(length=100), nullable=True),
     sa.Column('address', sa.Text(), nullable=True),
     sa.Column('email_verified', sa.Boolean(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),

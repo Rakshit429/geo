@@ -10,7 +10,6 @@ class Config:
         SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
         
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    
     # Clerk config
     CLERK_SECRET_KEY = os.environ.get('CLERK_SECRET_KEY')
     CLERK_PUBLISHABLE_KEY = os.environ.get('CLERK_PUBLISHABLE_KEY')

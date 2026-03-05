@@ -8,7 +8,7 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
             <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                
+
                 <div className="flex items-center gap-4">
                     {/* Mobile Menu Button (Only visible when logged in on small screens) */}
                     <SignedIn>
@@ -23,9 +23,9 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
                             SGL
                         </div>
                         <div className="flex flex-col">
-                            <a 
-                                href="https://smartgeotechnics.iitd.ac.in/" 
-                                target="_blank" 
+                            <a
+                                href="https://smartgeotechnics.iitd.ac.in/"
+                                target="_blank"
                                 rel="noreferrer"
                                 className="text-lg font-bold tracking-tight text-primary-dark hover:underline"
                             >
@@ -49,7 +49,9 @@ export default function Header({ onMenuClick }: { onMenuClick?: () => void }) {
                         </SignUpButton>
                     </SignedOut>
                     <SignedIn>
-                        <UserButton afterSignOutUrl="/" />
+                        <Link to="/profile" className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground hover:bg-primary-dark transition-colors font-semibold text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user-circle"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="10" r="3" /><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" /></svg>
+                        </Link>
                     </SignedIn>
                 </div>
             </div>

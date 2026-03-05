@@ -3,20 +3,22 @@ import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CsmipTool from "./pages/tools/CsmipTool";
-import Onboarding from "./pages/Onboarding"; 
+import Dashboard from "./pages/Dashboard";
+import Onboarding from "./pages/Onboarding";
 import AuthGuard from "./components/layout/AuthGuard";
+import DashboardLayout from "./components/layout/DashboardLayout";
 
 function App() {
   return (
     <Routes>
-      {/* Root: Landing if logged out, Redirect to Tool if logged in */}
+      {/* Root: Landing if logged out, Redirect to Dashboard if logged in */}
       <Route path="/" element={
         <>
-            <SignedOut><Landing /></SignedOut>
-            <SignedIn><Navigate to="/tools/csmip" replace /></SignedIn>
+          <SignedOut><Landing /></SignedOut>
+          <SignedIn><Navigate to="/dashboard" replace /></SignedIn>
         </>
       } />
-      
+
       {/* Onboarding */}
       <Route
         path="/onboarding"
@@ -27,8 +29,19 @@ function App() {
         }
       />
 
-      {/* Redirect old dashboard link to tool */}
-      <Route path="/dashboard" element={<Navigate to="/tools/csmip" replace />} />
+      {/* Dashboard Page */}
+      <Route
+        path="/dashboard"
+        element={
+          <SignedIn>
+            <AuthGuard>
+              <DashboardLayout>
+                <Dashboard />
+              </DashboardLayout>
+            </AuthGuard>
+          </SignedIn>
+        }
+      />
 
       {/* Profile Page */}
       <Route
@@ -36,7 +49,9 @@ function App() {
         element={
           <SignedIn>
             <AuthGuard>
-              <Profile />
+              <DashboardLayout>
+                <Profile />
+              </DashboardLayout>
             </AuthGuard>
           </SignedIn>
         }
@@ -48,7 +63,9 @@ function App() {
         element={
           <SignedIn>
             <AuthGuard>
-              <CsmipTool />
+              <DashboardLayout>
+                <CsmipTool />
+              </DashboardLayout>
             </AuthGuard>
           </SignedIn>
         }

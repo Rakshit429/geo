@@ -45,8 +45,8 @@ export default function Onboarding() {
         try {
             // Send data to backend to create/update the user record in Postgres
             await updateProfile(formData);
-            // Redirect to the tools area
-            navigate("/tools/csmip"); 
+            // Redirect to the dashboard
+            navigate("/dashboard");
         } catch (error) {
             console.error("Onboarding failed", error);
             alert("Failed to save profile. Please try again.");
@@ -66,7 +66,7 @@ export default function Onboarding() {
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-4">
-                        
+
                         {/* Full Name (Read Only from Clerk usually, but editable here) */}
                         <div className="space-y-2">
                             <Label htmlFor="full_name">Full Name</Label>
@@ -76,37 +76,37 @@ export default function Onboarding() {
                         {/* Profession */}
                         <div className="space-y-2">
                             <Label htmlFor="profession">Profession</Label>
-                            <Input 
-                                id="profession" 
-                                placeholder="e.g. Geotechnical Engineer, Research Scholar" 
-                                value={formData.profession} 
-                                onChange={handleChange} 
-                                required 
+                            <Input
+                                id="profession"
+                                placeholder="e.g. Geotechnical Engineer, Research Scholar"
+                                value={formData.profession}
+                                onChange={handleChange}
+                                required
                             />
                         </div>
 
                         {/* Company / College */}
                         <div className="space-y-2">
                             <Label htmlFor="organization">Company / College</Label>
-                            <Input 
-                                id="organization" 
-                                placeholder="e.g. IIT Delhi, L&T Construction" 
-                                value={formData.organization} 
-                                onChange={handleChange} 
-                                required 
+                            <Input
+                                id="organization"
+                                placeholder="e.g. IIT Delhi, L&T Construction"
+                                value={formData.organization}
+                                onChange={handleChange}
+                                required
                             />
                         </div>
 
                         {/* Phone Number (Unverified) */}
                         <div className="space-y-2">
                             <Label htmlFor="phone">Phone Number</Label>
-                            <Input 
-                                id="phone" 
+                            <Input
+                                id="phone"
                                 type="tel"
-                                placeholder="+91 98765 43210" 
-                                value={formData.phone} 
-                                onChange={handleChange} 
-                                required 
+                                placeholder="+91 98765 43210"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                required
                             />
                         </div>
 
