@@ -56,3 +56,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Fix MaterialTable pagination alignment */
+.MuiTablePagination-toolbar {
+  align-items: center !important;
+  min-height: 52px !important;
+}
+
+.MuiTablePagination-spacer {
+  flex: 1 1 auto !important;
+}
+
+.MuiTablePagination-selectLabel,
+.MuiTablePagination-displayedRows {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.MuiTablePagination-select {
+  display: flex !important;
+  align-items: center !important;
+}

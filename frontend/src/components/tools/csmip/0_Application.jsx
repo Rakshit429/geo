@@ -123,24 +123,26 @@ class Application extends Component {
         runCsmipAnalyze(this.state)
             .then(json => {
                 // console.log(json);
-                this.setState({
+                const newState = {
                     whether_analyzed: json.whether_analyzed,
                     Transfer_Functions: json.Transfer_Functions,
                     Max_Strain_Profile: json.Max_Strain_Profile
-                })
-                console.log(this.state);
+                };
 
-                if (this.state.whether_analyzed === 2) {
-
-                    this.Generate_Motion();
-                    this.setState({
-                        step: step + 1,
-                        whether_analyzed: 0
-                    })
+                if (json.whether_analyzed === 2) {
+                    newState.step = step + 1;
+                    newState.whether_analyzed = 0;
+                    this.setState(newState, () => {
+                        this.Generate_Motion();
+                    });
+                } else {
+                    this.setState(newState);
                 }
-
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                this.setState({ whether_analyzed: 0 });
+            });
     }
 
     /////////////////////////////////////////////
@@ -158,18 +160,14 @@ class Application extends Component {
             .then(json => {
                 console.log(json);
                 this.setState({
-                    whether_analyzed: json.whether_analyzed,
+                    whether_analyzed: 0,
                     FAS: json.FAS,
                 })
-                console.log(this.state);
-
-                if (this.state.whether_analyzed === 2) {
-                    this.setState({
-                        whether_analyzed: 0
-                    })
-                }
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                this.setState({ whether_analyzed: 0 });
+            });
     }
 
     /////////////////////////////////////////////
@@ -185,20 +183,16 @@ class Application extends Component {
             .then(json => {
                 console.log(json);
                 this.setState({
-                    whether_processed: json.whether_processed,
+                    whether_processed: 0,
                     Motion: json.Motion,
                     FA_Spectrum: json.FA_Spectrum,
                     Response_Spectrum: json.Response_Spectrum
                 })
-                console.log(this.state);
-
-                if (this.state.whether_processed === 2) {
-                    this.setState({
-                        whether_processed: 0
-                    })
-                }
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error);
+                this.setState({ whether_processed: 0 });
+            });
     }
 
     // function to handle update of values in form 

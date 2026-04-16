@@ -42,20 +42,20 @@ class Analysis_Settings extends Component {
         <div>
           <h6>2) Analysis parameters:</h6>
           <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Error tolerance is the limit at which the iterative process will terminate. " placement="right" ><Form.Label> &nbsp;&nbsp; Error tolerance (%) </Form.Label></CustomTooltip></Col>
+            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Error tolerance is the limit at which the iterative process will terminate. " placement="right" ><Form.Label style={{ paddingLeft: '8px' }}> Error tolerance (%) </Form.Label></CustomTooltip></Col>
             <Col sm={{ span: 4, offset: 0 }}><Form.Control type="text" name="Tol" defaultValue={this.props.inputValues.Tol} required onChange={this.props.handleChange} /></Col>
           </Form.Group>
           <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Maximum number of iterations to perform." placement="right" ><Form.Label> &nbsp;&nbsp; Maximum iterations </Form.Label></CustomTooltip></Col>
+            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Maximum number of iterations to perform." placement="right" ><Form.Label style={{ paddingLeft: '8px' }}> Maximum iterations </Form.Label></CustomTooltip></Col>
             <Col sm={{ span: 4, offset: 0 }}><Form.Control type="text" name="MaxIter" defaultValue={this.props.inputValues.MaxIter} required onChange={this.props.handleChange} /></Col>
           </Form.Group>
           <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Ratio between the maximum strain and effective strain used to compute strain-compatible properties." placement="right" ><Form.Label> &nbsp;&nbsp; Effective strain ratio</Form.Label></CustomTooltip></Col>
+            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Ratio between the maximum strain and effective strain used to compute strain-compatible properties." placement="right" ><Form.Label style={{ paddingLeft: '8px' }}> Effective strain ratio</Form.Label></CustomTooltip></Col>
             <Col sm={{ span: 4, offset: 0 }}><Form.Control type="text" name="EffStrain" defaultValue={this.props.inputValues.EffStrain} required onChange={this.props.handleChange} /></Col>
           </Form.Group>
           <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Limit of strain in calculations. If this strain is exceed, the iterative calculation is ended." placement="right" ><Form.Label> &nbsp;&nbsp; Strain limit</Form.Label></CustomTooltip></Col>
-            <Col sm={{ span: 4, offset: 0 }}><Form.Control type="text" name="MaxFreq" defaultValue={this.props.inputValues.StrainLimit} required onChange={this.props.handleChange} /></Col>
+            <Col sm={{ span: 8, offset: 0 }}><CustomTooltip title="Limit of strain in calculations. If this strain is exceed, the iterative calculation is ended." placement="right" ><Form.Label style={{ paddingLeft: '8px' }}> Strain limit</Form.Label></CustomTooltip></Col>
+            <Col sm={{ span: 4, offset: 0 }}><Form.Control type="text" name="StrainLimit" defaultValue={this.props.inputValues.StrainLimit} required onChange={this.props.handleChange} /></Col>
           </Form.Group>
         </div>;
     }

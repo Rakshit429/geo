@@ -3,6 +3,7 @@ import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CsmipTool from "./pages/tools/CsmipTool";
+import SlopeStabilityTool from "./pages/tools/SlopeStabilityTool";
 import Dashboard from "./pages/Dashboard";
 import Onboarding from "./pages/Onboarding";
 import AuthGuard from "./components/layout/AuthGuard";
@@ -65,6 +66,20 @@ function App() {
             <AuthGuard>
               <DashboardLayout>
                 <CsmipTool />
+              </DashboardLayout>
+            </AuthGuard>
+          </SignedIn>
+        }
+      />
+
+      {/* Slope Stability Tool */}
+      <Route
+        path="/tools/slope-stability"
+        element={
+          <SignedIn>
+            <AuthGuard>
+              <DashboardLayout>
+                <SlopeStabilityTool />
               </DashboardLayout>
             </AuthGuard>
           </SignedIn>

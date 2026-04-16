@@ -169,16 +169,25 @@ class Target_Site extends Component {
                             <Row>
                                 <div>
                                     <br />
-                                    <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-                                        <Col xs={4}><Form.Label> <h6> 2) Water Table Depth (m)</h6> </Form.Label></Col>
-                                        <Col xs={2}><Form.Control type="text" name="Tar_Water_Table_Depth" defaultValue={this.props.inputValues.Tar_Water_Table_Depth} required onChange={this.props.handleChange} /></Col>
+                                    <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "15px" }}>
+                                        <Col xs={3}><Form.Label className="mb-0"> <h6 style={{ margin: 0 }}> 2) Water Table Depth</h6> </Form.Label></Col>
+                                        <Col xs={2} style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Form.Control type="text" name="Tar_Water_Table_Depth" defaultValue={this.props.inputValues.Tar_Water_Table_Depth} required onChange={this.props.handleChange} style={{ marginRight: '8px' }} />
+                                            <h6 style={{ margin: 0 }}>(m)</h6>
+                                        </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} controlId="Date" style={{ display: "flex", flexDirection: "row", alignItems: "center", }}>
-                                        <Col xs={2}><Form.Label> <h6> 3) Halfspace: </h6> </Form.Label></Col>
-                                        <Col xs={2}><CustomTooltip title="Halfspace shear wave velocity" placement="bottom" ><Form.Label> V<sub>S</sub> (m/s) </Form.Label></CustomTooltip></Col>
-                                        <Col xs={2}><Form.Control type="text" name="Tar_Halfspace_Vs" defaultValue={this.props.inputValues.Tar_Halfspace_Vs} required onChange={this.props.handleChange} /></Col>
-                                        <Col xs={2}><CustomTooltip title="Halfspace damping" placement="bottom" ><Form.Label>Damping (%) </Form.Label></CustomTooltip></Col>
-                                        <Col xs={2}><Form.Control type="text" name="Tar_Halfspace_Damping" defaultValue={this.props.inputValues.Tar_Halfspace_Damping} required onChange={this.props.handleChange} /></Col>
+                                        <Col xs={2}><Form.Label className="mb-0"> <h6 style={{ margin: 0 }}> 3) Halfspace: </h6> </Form.Label></Col>
+                                        <Col xs={1}><CustomTooltip title="Halfspace shear wave velocity" placement="bottom" ><Form.Label className="mb-0"> <h6 style={{ margin: 0 }}>V<sub>S</sub></h6> </Form.Label></CustomTooltip></Col>
+                                        <Col xs={2} style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Form.Control type="text" name="Tar_Halfspace_Vs" defaultValue={this.props.inputValues.Tar_Halfspace_Vs} required onChange={this.props.handleChange} style={{ marginRight: '8px' }} />
+                                            <h6 style={{ margin: 0 }}>(m/s)</h6>
+                                        </Col>
+                                        <Col xs={2}><CustomTooltip title="Halfspace damping" placement="bottom" ><Form.Label className="mb-0"><h6 style={{ margin: 0 }}>Damping</h6></Form.Label></CustomTooltip></Col>
+                                        <Col xs={2} style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Form.Control type="text" name="Tar_Halfspace_Damping" defaultValue={this.props.inputValues.Tar_Halfspace_Damping} required onChange={this.props.handleChange} style={{ marginRight: '8px' }} />
+                                            <h6 style={{ margin: 0 }}>(%)</h6>
+                                        </Col>
                                     </Form.Group>
                                 </div>
                             </Row>

@@ -24,9 +24,9 @@ export default function Dashboard() {
     });
 
     return (
-        <div className="flex flex-col gap-6 w-full pb-8">
+        <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto pb-8">
             {/* Header Greeting Section */}
-            <div className="mb-4">
+            <div>
                 <h1 className="text-2xl font-semibold text-primary-dark">
                     Good morning, {firstName}! <span className="text-xl">👋</span>
                 </h1>
@@ -36,14 +36,14 @@ export default function Dashboard() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white p-6 border border-border shadow-sm rounded-xl flex items-center gap-4">
                     <div className="p-3 bg-primary/10 rounded-full text-primary">
                         <Hammer className="h-6 w-6" />
                     </div>
                     <div>
                         <p className="text-sm font-medium text-muted-foreground">Tools Used</p>
-                        <h3 className="text-2xl font-bold text-primary-dark">1</h3>
+                        <h3 className="text-2xl font-bold text-primary-dark">2</h3>
                     </div>
                 </div>
 
@@ -60,10 +60,10 @@ export default function Dashboard() {
 
             {/* Your Tools Section */}
             <div>
-                <h2 className="text-xl font-bold tracking-tight mb-4 uppercase text-gray-400 text-sm">
+                <h2 className="text-sm font-bold tracking-tight mb-4 uppercase text-gray-400">
                     Your Tools
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     {/* CSMIP Tool Card */}
                     <div className="bg-white p-6 flex flex-col border border-border shadow-sm rounded-xl hover:shadow-md transition-shadow">
@@ -79,29 +79,31 @@ export default function Dashboard() {
                         </div>
                         <div>
                             <Link to="/tools/csmip" className="w-full inline-block">
-                                <button className="w-full flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors disabled:opacity-50">
+                                <button className="w-full flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-primary-dark transition-colors">
                                     ACCESS <ArrowRight className="w-4 h-4" />
                                 </button>
                             </Link>
                         </div>
                     </div>
 
-                    {/* Coming Soon Card */}
-                    <div className="bg-gray-50/50 p-6 flex flex-col border border-dashed border-gray-200 rounded-xl">
+                    {/* Slope Stability Tool Card */}
+                    <div className="bg-white p-6 flex flex-col border border-border shadow-sm rounded-xl hover:shadow-md transition-shadow">
                         <div className="mb-4">
-                            <div className="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center mb-4 text-gray-500">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-4 text-green-600">
                                 <Hammer className="h-6 w-6" />
                             </div>
-                            <h3 className="text-lg font-medium text-gray-500 mb-1">More Tools</h3>
-                            <p className="text-sm text-gray-400 min-h-[40px]">Additional analysis utilities will be available here.</p>
+                            <h3 className="text-lg font-medium text-primary-dark mb-1">Slope Stability</h3>
+                            <p className="text-sm text-muted-foreground min-h-[40px]">Probabilistic slope stability analysis with customizable soil layers and geometry.</p>
                         </div>
-                        <div className="flex-1">
-                            {/* Empty space filler */}
+                        <div className="flex-1 text-sm text-muted-foreground mb-4">
+                            <p>New tool</p>
                         </div>
-                        <div className="mt-4">
-                            <button className="w-full flex items-center justify-center gap-2 rounded-md bg-gray-100 border border-gray-200 px-4 py-2 text-sm font-medium text-gray-400 cursor-not-allowed disabled:opacity-50" disabled>
-                                Coming Soon
-                            </button>
+                        <div>
+                            <Link to="/tools/slope-stability" className="w-full inline-block">
+                                <button className="w-full flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-white hover:bg-primary-dark transition-colors">
+                                    ACCESS <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </Link>
                         </div>
                     </div>
 

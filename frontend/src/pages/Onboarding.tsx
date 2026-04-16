@@ -34,7 +34,7 @@ export default function Onboarding() {
         }
     }, [user]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     };
 
@@ -97,23 +97,83 @@ export default function Onboarding() {
                             />
                         </div>
 
-                        {/* Phone Number (Unverified) */}
+                        {/* Phone Number */}
                         <div className="space-y-2">
                             <Label htmlFor="phone">Phone Number</Label>
                             <Input
                                 id="phone"
                                 type="tel"
-                                placeholder="+91 98765 43210"
+                                placeholder="9876543210"
                                 value={formData.phone}
-                                onChange={handleChange}
+                                onChange={(e) => {
+                                    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                    setFormData({ ...formData, phone: val });
+                                }}
+                                pattern="[0-9]{10}"
+                                maxLength={10}
+                                title="Please enter exactly 10 digits"
                                 required
                             />
+                            {formData.phone.length > 0 && formData.phone.length < 10 && (
+                                <p className="text-xs text-red-500">{10 - formData.phone.length} more digit{10 - formData.phone.length !== 1 ? 's' : ''} needed</p>
+                            )}
                         </div>
 
-                        {/* Country (Hidden or optional UI, defaults to India) */}
+                        {/* Country */}
                         <div className="space-y-2">
                             <Label htmlFor="country">Country</Label>
-                            <Input id="country" value={formData.country} onChange={handleChange} />
+                            <select
+                                id="country"
+                                value={formData.country}
+                                onChange={handleChange}
+                                required
+                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                            >
+                                <option value="">Select a country</option>
+                                <option value="India">India</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Japan">Japan</option>
+                                <option value="China">China</option>
+                                <option value="South Korea">South Korea</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="UAE">UAE</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Norway">Norway</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Israel">Israel</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Peru">Peru</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
 
                         <Button type="submit" className="w-full mt-4" disabled={loading}>
